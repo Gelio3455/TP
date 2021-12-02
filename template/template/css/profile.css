@@ -1,0 +1,122 @@
+.active {
+  border-bottom: 2px solid #fff;
+  border-radius: 2px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #E10600;
+  padding: 20px 0
+}
+
+.header .container {
+  display: flex;
+}
+
+.logo {
+  margin-right: 60px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list-item {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 35px;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  margin-right: 22px;
+}
+
+.profile-info {
+  padding-top: 47px;
+  margin-bottom: 120px;
+}
+
+.profile-info .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-img {
+  width: 262px;
+  height: 262px;
+}
+
+.main-info {
+  width: 252px;
+  display: flex;
+  flex-direction: column;
+  font-size: 21px;
+  line-height: 35px;
+  color: #000;
+  letter-spacing: .5px;
+}
+
+.car-info {
+  width: 375px;
+}
+
+.car-title {
+  font-size: 21px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #000000;
+}
+
+.car-info img {
+  display: block;
+}
+
+.nt-title {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 53px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #15151E;
+  margin-bottom: 18px;
+}
+
+.nt-box {
+  padding: 42px 77px;
+  background-color: #15151E;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nt-box-teacher,
+.nt-box-loc {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 165%;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 29px;
+}
+
+.nt-box-btn {
+  margin-top: 139px;
+  display: block;
+  width: 199px;
+  padding: 11px 0;
+  text-align: center;
+  font-size: 21px;
+  line-height: 35px;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  background-color: #e10600;
+  border-radius: 2px;
+}
