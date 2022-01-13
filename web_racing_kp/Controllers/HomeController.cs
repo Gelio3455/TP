@@ -40,5 +40,10 @@ namespace web_racing_kp.Controllers
 
             return View();
         }
+
+        public ActionResult Chat()
+        {
+            return View();
+        }
     }
 }

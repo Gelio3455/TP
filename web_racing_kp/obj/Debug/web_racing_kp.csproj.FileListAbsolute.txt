@@ -86,3 +86,16 @@ C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\obj\Debug\web_racing_kp.
 C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\obj\Debug\web_racing_kp.csproj.CopyComplete
 C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\obj\Debug\web_racing_kp.dll
 C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\obj\Debug\web_racing_kp.pdb
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.Owin.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.Owin.Security.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Owin.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.Owin.xml
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\Microsoft.Owin.Security.xml
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\ru\Microsoft.AspNet.SignalR.Core.resources.dll
+C:\Users\tosha\source\repos\web_racing_kp\web_racing_kp\bin\ru\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
