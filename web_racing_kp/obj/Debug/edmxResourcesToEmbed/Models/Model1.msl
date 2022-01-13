@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище racing_dbModelContainer" CdmEntityContainer="racing_dbEntities1">
+    <EntitySetMapping Name="Circuit">
+      <EntityTypeMapping TypeName="racing_dbModel.Circuit">
+        <MappingFragment StoreEntitySet="Circuit">
+          <ScalarProperty Name="ID_Circuit" ColumnName="ID_Circuit" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="License">
+      <EntityTypeMapping TypeName="racing_dbModel.License">
+        <MappingFragment StoreEntitySet="License">
+          <ScalarProperty Name="ID_License" ColumnName="ID_License" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="racing_dbModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="ID_Team" ColumnName="ID_Team" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+          <ScalarProperty Name="ID_Circuit" ColumnName="ID_Circuit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Timetable">
+      <EntityTypeMapping TypeName="racing_dbModel.Timetable">
+        <MappingFragment StoreEntitySet="Timetable">
+          <ScalarProperty Name="link_on_picture" ColumnName="link_on_picture" />
+          <ScalarProperty Name="ID_Team" ColumnName="ID_Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTable">
+      <EntityTypeMapping TypeName="racing_dbModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Name_Team" ColumnName="Name_Team" />
+          <ScalarProperty Name="Racing_level" ColumnName="Racing_level" />
+          <ScalarProperty Name="Points_in_seasion" ColumnName="Points_in_seasion" />
+          <ScalarProperty Name="Open_close_wheets" ColumnName="Open_close_wheets" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище racing_dbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Circuit">
+    <Key>
+      <PropertyRef Name="ID_Circuit" />
+    </Key>
+    <Property Name="ID_Circuit" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="ID_License" />
+      <PropertyRef Name="ID_user" />
+    </Key>
+    <Property Name="ID_License" Type="int" Nullable="false" />
+    <Property Name="level" Type="varchar" MaxLength="50" />
+    <Property Name="ID_user" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="ID_Team" />
+    </Key>
+    <Property Name="ID_Team" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="ID_user" Type="int" Nullable="false" />
+    <Property Name="ID_Circuit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Timetable">
+    <Key>
+      <PropertyRef Name="ID_Team" />
+    </Key>
+    <Property Name="link_on_picture" Type="char" MaxLength="18" />
+    <Property Name="ID_Team" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="ID_user" />
+    </Key>
+    <Property Name="ID_user" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Name_Team" Type="varchar" MaxLength="50" />
+    <Property Name="Racing_level" Type="varchar" MaxLength="50" />
+    <Property Name="Points_in_seasion" Type="int" />
+    <Property Name="Open_close_wheets" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="R_1">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="License" Type="Self.License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="ID_user" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="ID_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_4">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="ID_user" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ID_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_5">
+    <End Role="Circuit" Type="Self.Circuit" Multiplicity="1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circuit">
+        <PropertyRef Name="ID_Circuit" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ID_Circuit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_7">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Timetable" Type="Self.Timetable" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="ID_Team" />
+      </Principal>
+      <Dependent Role="Timetable">
+        <PropertyRef Name="ID_Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище racing_dbModelContainer">
+    <EntitySet Name="Circuit" EntityType="Self.Circuit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="License" EntityType="Self.License" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Timetable" EntityType="Self.Timetable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="R_1" Association="Self.R_1">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="License" EntitySet="License" />
+    </AssociationSet>
+    <AssociationSet Name="R_4" Association="Self.R_4">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="R_5" Association="Self.R_5">
+      <End Role="Circuit" EntitySet="Circuit" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="R_7" Association="Self.R_7">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Timetable" EntitySet="Timetable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

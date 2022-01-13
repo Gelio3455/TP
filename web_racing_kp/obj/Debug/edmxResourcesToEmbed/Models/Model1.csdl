@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="racing_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Circuit">
+    <Key>
+      <PropertyRef Name="ID_Circuit" />
+    </Key>
+    <Property Name="ID_Circuit" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Team" Relationship="Self.R_5" FromRole="Circuit" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="ID_License" />
+      <PropertyRef Name="ID_user" />
+    </Key>
+    <Property Name="ID_License" Type="Int32" Nullable="false" />
+    <Property Name="level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_user" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserTable" Relationship="Self.R_1" FromRole="License" ToRole="UserTable" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="ID_Team" />
+    </Key>
+    <Property Name="ID_Team" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_user" Type="Int32" Nullable="false" />
+    <Property Name="ID_Circuit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Circuit" Relationship="Self.R_5" FromRole="Team" ToRole="Circuit" />
+    <NavigationProperty Name="UserTable" Relationship="Self.R_4" FromRole="Team" ToRole="UserTable" />
+    <NavigationProperty Name="Timetable" Relationship="Self.R_7" FromRole="Team" ToRole="Timetable" />
+  </EntityType>
+  <EntityType Name="Timetable">
+    <Key>
+      <PropertyRef Name="ID_Team" />
+    </Key>
+    <Property Name="link_on_picture" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="ID_Team" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Team" Relationship="Self.R_7" FromRole="Timetable" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="ID_user" />
+    </Key>
+    <Property Name="ID_user" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name_Team" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Racing_level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Points_in_seasion" Type="Int32" />
+    <Property Name="Open_close_wheets" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="License" Relationship="Self.R_1" FromRole="UserTable" ToRole="License" />
+    <NavigationProperty Name="Team" Relationship="Self.R_4" FromRole="UserTable" ToRole="Team" />
+  </EntityType>
+  <Association Name="R_5">
+    <End Role="Circuit" Type="Self.Circuit" Multiplicity="1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circuit">
+        <PropertyRef Name="ID_Circuit" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ID_Circuit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_1">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="License" Type="Self.License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="ID_user" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="ID_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_4">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="ID_user" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="ID_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_7">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Timetable" Type="Self.Timetable" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="ID_Team" />
+      </Principal>
+      <Dependent Role="Timetable">
+        <PropertyRef Name="ID_Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="racing_dbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Circuit" EntityType="Self.Circuit" />
+    <EntitySet Name="License" EntityType="Self.License" />
+    <EntitySet Name="Team" EntityType="Self.Team" />
+    <EntitySet Name="Timetable" EntityType="Self.Timetable" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" />
+    <AssociationSet Name="R_5" Association="Self.R_5">
+      <End Role="Circuit" EntitySet="Circuit" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="R_1" Association="Self.R_1">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="License" EntitySet="License" />
+    </AssociationSet>
+    <AssociationSet Name="R_4" Association="Self.R_4">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="R_7" Association="Self.R_7">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Timetable" EntitySet="Timetable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
